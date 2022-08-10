@@ -49,7 +49,7 @@ void main()
 	{
 		for(j=0;j<m;j++)
 		{
-			b[i][j] = 255 * ((a[i][j]-rmin)/(rmax-rmin));
+			b[i][j] = (int)255 * ((a[i][j]-rmin)/(rmax-rmin));
 		}
 	}
 	for(i=0;i<n;i++)
