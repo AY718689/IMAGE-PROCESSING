@@ -5,7 +5,7 @@
 #define col 512
 int i,j,k;
 int a[row][col],b[row+2][col+2],d[row][col];
-int median(int b[][col+2],int i,int j)
+int maxf(int b[][col+2],int i,int j)
 {
 	int c[9],u,v;
 	c[0]=b[i-1][j-1];
@@ -103,7 +103,7 @@ main()
 	{
 		for(j=1;j<=col;j++)
 		{
-			d[i][j] = median(b,i,j);
+			d[i][j] = maxf(b,i,j);
 		}
 	}
 	for(i=1;i<=row;i++)
