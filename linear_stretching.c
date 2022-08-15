@@ -22,25 +22,17 @@ void main()
 	}
 	rmax = a[0][0];
 	rmin = a[0][0];
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<m;j++)
-		{
-			
-			if(rmax < a[i][j])
-				rmax = a[i][j];
-		}
-	}
+	for(i=0;i<m;i++)
+	{ 
+    	for(j=0;j<n;j++) 
+		{ 
+			if(a[i][j]<rmin) 
+				rmin=a[i][j]; 
+			if(a[i][j]>rmax) 
+				rmax=a[i][j]; 
+		} 
+	} 
 	printf("Rmax : %d\n",rmax);
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<m;j++)
-		{
-			
-			if(rmin > a[i][j])
-				rmin = a[i][j];
-		}
-	}
 	printf("Rmin : %d\n",rmin);
 	fclose(fptr);
 	fptr=fopen("output.txt","w+");
@@ -50,6 +42,7 @@ void main()
 		for(j=0;j<m;j++)
 		{
 			b[i][j] = (int)255 * ((a[i][j]-rmin)/(rmax-rmin));
+			printf("%d ",b[i][j]);
 		}
 	}
 	for(i=0;i<n;i++)
@@ -61,4 +54,3 @@ void main()
 	}
 	fclose(fptr);
 }
-
