@@ -4,7 +4,7 @@
 main()
 {
 	int n,m,r,i,j;
-	double rmax,rmin;
+	int rmax,rmin;
 	FILE *fptr;
 	fptr=fopen("input.txt","r");
 	fscanf(fptr,"%d %d %d",&n,&m,&r);
@@ -22,26 +22,18 @@ main()
 	}
 	rmax = a[0][0];
 	rmin = a[0][0];
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<m;j++)
-		{
-			
-			if(rmax < a[i][j])
-				rmax = a[i][j];
-		}
-	}
-	printf("Rmax : %.1lf\n",rmax);
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<m;j++)
-		{
-			
-			if(rmin > a[i][j])
-				rmin = a[i][j];
-		}
-	}
-	printf("Rmin : %.1lf\n",rmin);
+	for(i=0;i<m;i++)
+	{ 
+    	for(j=0;j<n;j++) 
+		{ 
+			if(a[i][j]<rmin) 
+				rmin=a[i][j]; 
+			if(a[i][j]>rmax) 
+				rmax=a[i][j]; 
+		} 
+	} 
+	printf("Rmax : %d\n",rmax);
+	printf("Rmin : %d\n",rmin);
 	fclose(fptr);
 	fptr=fopen("output.txt","w+");
 	fprintf(fptr,"P2\n%d %d %d\n",n,m,r);
